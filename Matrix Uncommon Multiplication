@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    int a, b;
+    scanf("%d %d", &a, &b);
+    int max;
+    int row;
+    if (a > b)
+    {
+        max = a;
+        row = b;
+    }
+    else
+    {
+        row = a;
+        max = b;
+    }
+    int arr[a][b];
+    printf("Enter the elements of the first array:\n");
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int r, s;
+    scanf("%d %d", &r, &s);
+    int arr1[r][s];
+    int col;
+    if (r > s)
+    {
+        col = s;
+    }
+    else
+    {
+        col = r;
+    }
+    printf("Enter the elements of the second array:\n");
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            scanf("%d", &arr1[i][j]);
+        }
+    }
+    int res[row][col];
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            res[i][j] = 0;
+            for (int k = 0; k < max; k++)
+            {
+                res[i][j] += arr[i][k] * arr1[k][j];
+            }
+        }
+    }
+    printf("_____________________________________\n");
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            printf("%d ", res[i][j]);
+        }
+        printf("\n");
+    }
+}
